@@ -1,0 +1,16 @@
+.footer{
+    background: #666;
+    color: white;
+    padding: 20px;
+}
+
+.footer-link{
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 5px;
+}
+.footer-link:hover{
+    opacity: 0.7;
+    color: white;
+}
