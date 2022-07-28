@@ -9,6 +9,8 @@ import {
   faInfoCircle,
   faTrainSubway,
   faRoute,
+  faArrowAltCircleRight,
+  faArrowRotateLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { AirlineSeatReclineExtra } from "@mui/icons-material";
 import FindInPageIcon from "@mui/icons-material/FindInPage";
@@ -97,6 +99,78 @@ const Results = ({ data = tempData }) => {
         </div>
       </WhiteBlock>
       <WhiteBlock>
+        <div className="d-flex justify-content-between">
+          <h2 className="m-0">Passenger Status</h2>
+          <div>
+            <h4>Chart Not Prepared</h4>
+            <div className="d-flex align-items-center">
+              <p className="m-0">Just now</p>
+              <FontAwesomeIcon
+                icon={faArrowRotateLeft}
+                style={{ color: "green" }}
+                className="mx-2"
+              />
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div className="row">
+          <div className="col-12 col-sm-6 col-lg-2 mb-4 mb-lg-0">
+            <h5 className="text-muted">S. No</h5>
+            <h4 className="m-0">1</h4>
+          </div>
+          <div className="col-12 col-sm-6 col-lg-3">
+            <h5 className="text-muted">Current Status </h5>
+            <h4 className="m-0 text-success">CNF</h4>
+          </div>
+          <div className="col-12 col-sm-6 col-lg-4">
+            <h5 className="text-muted">Booking Status </h5>
+            <h4 className="m-0">CNF D1 49 </h4>
+          </div>
+          <div className="col-12 col-sm-6 col-lg-3">
+            <h5 className="text-muted">Coach Position</h5>
+            <h4 className="m-0">-</h4>
+          </div>
+        </div>
+      </WhiteBlock>
+      <WhiteBlock>
+        <div className="row">
+          <div className="col-12 col-lg-7 mb-3 m-lg-0">
+            <div className="row">
+              <div className="col-12 d-flex justify-content-between align-items-center">
+                <FontAwesomeIcon
+                  size="lg"
+                  icon={faTrainSubway}
+                  className="me-2"
+                />
+                <h5 className="m-0 flex-grow-1">Book a return ticket</h5>
+                <button className="btn btn-success">Book Now</button>
+              </div>
+              <hr className="my-3" />
+              <div className="col-12 d-flex justify-content-between align-items-center">
+                <FontAwesomeIcon
+                  size="lg"
+                  icon={faTrainSubway}
+                  className="me-2"
+                />
+                <h5 className="m-0 flex-grow-1">For Faster Experience </h5>
+                <button className="btn btn-success">Download Now</button>
+              </div>
+            </div>
+          </div>
+          <button className="col-12 col-lg-4 btn  btn-warning offset-lg-1 d-flex justify-content-between align-items-center">
+            <FontAwesomeIcon size="lg" icon={faTrainSubway} className="me-2" />
+            <h5 className="m-0">IRCTC Food Booking</h5>
+            <FontAwesomeIcon
+              size="lg"
+              icon={faArrowAltCircleRight}
+              className="mx-2"
+            />
+          </button>
+        </div>
+      </WhiteBlock>
+
+      <WhiteBlock>
         <div className="row">
           <div className="col-6 col-lg-3 d-flex align-items-center">
             <FontAwesomeIcon size="lg" icon={faTrainSubway} className="me-2" />
@@ -121,8 +195,8 @@ const Results = ({ data = tempData }) => {
           <div
             style={{
               backgroundColor: "#5db85b",
-              width: 30,
-              height: 30,
+              width: 25,
+              height: 25,
               borderRadius: "50%",
               marginRight: 10,
             }}
@@ -133,8 +207,8 @@ const Results = ({ data = tempData }) => {
           <div
             style={{
               backgroundColor: "#efad4e",
-              width: 30,
-              height: 30,
+              width: 25,
+              height: 25,
               borderRadius: "50%",
               marginRight: 10,
             }}
@@ -145,8 +219,8 @@ const Results = ({ data = tempData }) => {
           <div
             style={{
               backgroundColor: "#d8544f",
-              width: 30,
-              height: 30,
+              width: 25,
+              height: 25,
               borderRadius: "50%",
               marginRight: 10,
             }}

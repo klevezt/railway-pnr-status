@@ -60,7 +60,7 @@ const Header = () => {
                   <img
                     src={trainLogo}
                     alt="app-icon"
-                    width={40}
+                    width={30}
                     className="me-2"
                   />
                   Download App

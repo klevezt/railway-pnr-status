@@ -1,10 +1,10 @@
 import React from "react";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import styles from "./Footer.module.css";
 import { Link } from "react-router-dom";
 import award1 from "../../emerge-award.png";
 import award2 from "../../pci-dss-compliant.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
@@ -13,14 +13,28 @@ const Footer = () => {
         <div className="row">
           <div className="col-12 col-md-6 ">
             <div className="d-flex align-items-center mb-3">
-              <h2>Follow us on:</h2>
-              <FacebookIcon
-                className="mx-2"
-                style={{ color: "#4267B2", backgroundColor: "#fff" }}
+              <h2 className="me-3">Follow us on:</h2>
+              <FontAwesomeIcon
+                icon={faFacebook}
+                className="mx-2 p-2"
+                style={{
+                  fontSize: 25,
+                  color: "#4267B2",
+                  backgroundColor: "#fff",
+                  borderRadius: "50%",
+                  border: 0,
+                }}
               />
-              <TwitterIcon
-                className="mx-2"
-                style={{ color: "#4267B2", backgroundColor: "#fff" }}
+              <FontAwesomeIcon
+                icon={faTwitter}
+                className="mx-2 p-2"
+                style={{
+                  fontSize: 25,
+                  color: "#1DA1F2",
+                  backgroundColor: "#fff",
+                  borderRadius: "50%",
+                  border: 0,
+                }}
               />
             </div>
             <div className="row m-0">
@@ -58,9 +72,14 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-12 col-md-6">
-            <div className="d-flex align-items-center">
-              <img src={award1} alt="award1" width={200} />
-              <img src={award2} alt="award2" height={100} />
+            <div className="d-flex align-items-center row">
+              <img src={award1} alt="award1" className="col-12 col-sm-4" />
+              <img
+                src={award2}
+                alt="award2"
+                height={80}
+                className="col-12 col-sm-3"
+              />
             </div>
           </div>
         </div>
@@ -78,7 +97,7 @@ const Footer = () => {
           </div>
         </div>
         <hr />
-        <p>
+        <p className="m-0">
           ConfirmTkt.com is official partner of IRCTC to book IRCTC train
           tickets and Railway train enquiry
         </p>
