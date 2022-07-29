@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Header.module.css";
 import logo from "../../horizontal.png";
 import trainLogo from "../../app_icon.png";
@@ -6,6 +6,10 @@ import { ExpandMore } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
+  const toggleMenu = () => {
+    setOpenMobileMenu(s=>!s);
+  };
   return (
     <header className={styles["app-header"]}>
       <nav className="navbar navbar-expand-md">
@@ -14,6 +18,7 @@ const Header = () => {
             <img src={logo} className="navbar-brand" alt="brand" />
           </Link>
           <button
+            onClick={toggleMenu}
             className="navbar-toggler"
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
@@ -21,8 +26,9 @@ const Header = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+          
           <div
-            className="collapse navbar-collapse flex-grow-inherit"
+            className={`collapse navbar-collapse flex-grow-inherit ${!openMobileMenu ? "show" : ""} `}
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">

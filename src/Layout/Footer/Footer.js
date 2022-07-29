@@ -37,6 +37,7 @@ const Footer = () => {
                 }}
               />
             </div>
+            <hr />
             <div className="row m-0">
               <ul className="list-group list-group-flush col-6">
                 <Link to="/" target="_blank" className={styles["footer-link"]}>

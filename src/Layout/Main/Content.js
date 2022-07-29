@@ -11,7 +11,6 @@ const Content = () => {
 
   const onSubmit = async (e, number) => {
     e.preventDefault();
-    if (number.length !== 10) return;
     setLoading(true);
     setShowResults(true);
     try {
