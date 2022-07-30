@@ -14,28 +14,32 @@ const Footer = () => {
           <div className="col-12 col-md-6 ">
             <div className="d-flex align-items-center mb-3">
               <h2 className="me-3">Follow us on:</h2>
-              <FontAwesomeIcon
-                icon={faFacebook}
-                className="mx-2 p-2"
-                style={{
-                  fontSize: 25,
-                  color: "#4267B2",
-                  backgroundColor: "#fff",
-                  borderRadius: "50%",
-                  border: 0,
-                }}
-              />
-              <FontAwesomeIcon
-                icon={faTwitter}
-                className="mx-2 p-2"
-                style={{
-                  fontSize: 25,
-                  color: "#1DA1F2",
-                  backgroundColor: "#fff",
-                  borderRadius: "50%",
-                  border: 0,
-                }}
-              />
+              <Link to="/">
+                <FontAwesomeIcon
+                  icon={faFacebook}
+                  className="mx-2 p-2"
+                  style={{
+                    fontSize: 25,
+                    color: "#4267B2",
+                    backgroundColor: "#fff",
+                    borderRadius: "50%",
+                    border: 0,
+                  }}
+                />
+              </Link>
+              <Link to="/">
+                <FontAwesomeIcon
+                  icon={faTwitter}
+                  className="mx-2 p-2"
+                  style={{
+                    fontSize: 25,
+                    color: "#1DA1F2",
+                    backgroundColor: "#fff",
+                    borderRadius: "50%",
+                    border: 0,
+                  }}
+                />
+              </Link>
             </div>
             <hr />
             <div className="row m-0">
@@ -102,7 +106,7 @@ const Footer = () => {
           ConfirmTkt.com is official partner of IRCTC to book IRCTC train
           tickets and Railway train enquiry
         </p>
-        <p>© 2022 Confirmtkt</p>
+        <p className="m-0">© 2022 Confirmtkt</p>
       </div>
     </footer>
   );

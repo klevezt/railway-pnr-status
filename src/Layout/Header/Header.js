@@ -28,7 +28,7 @@ const Header = () => {
           </button>
           
           <div
-            className={`collapse navbar-collapse flex-grow-inherit ${!openMobileMenu ? "show" : ""} `}
+            className={`collapse navbar-collapse flex-grow-inherit ${openMobileMenu ? "show" : ""} `}
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">

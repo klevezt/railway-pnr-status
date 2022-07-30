@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { Fragment } from "react";
 import WhiteBlock from "../../components/UI/Blocks/WhiteBlock";
 import {
   faStar,
@@ -22,43 +22,66 @@ const tempData = {
   pnr: "4753150809",
   trainNo: "16115",
   trainName: "MS PDY EXPRESS",
-  doj: "Mon, 31 Oct",
-  bookingDate: null,
-  quota: null,
-  destinationDoj: "Tambaram - TBM",
-  sourceDoj: "Chennai Egmore - MS",
-  from: null,
-  reservationUpto: "Chennai Egmore - MS",
-  boardingPoint: null,
+  doj: "31-10-2022",
+  bookingDate: "04-07-2022",
+  quota: "GN",
+  destinationDoj: "31-10-2022",
+  sourceDoj: "31-10-2022",
+  from: "MS",
+  reservationUpto: "TBM",
+  boardingPoint: "MS",
   getclass: "2S",
-  chartPrepared: "Chart Not Prepared",
-  boardingStationName: "Chennai Egmore - MS",
-  trainStatus: null,
-  trainCancelledFlag: null,
-  reservationUptoName: null,
-  passengerCount: null,
-  passengerStatus: "CNF",
-  cacheTime: null,
-  error: null,
-  departureTime: "18:43",
-  arrivalTime: "18:10",
+  chartPrepared: "false",
+  boardingStationName: "Chennai Egmore",
+  trainStatus: "",
+  trainCancelledFlag: "false",
+  reservationUptoName: "Tambaram",
+  passengerCount: "1",
+  passengerStatus: [
+    {
+      Pnr: null,
+      Number: 1,
+      Prediction: null,
+      PredictionPercentage: 100,
+      ConfirmTktStatus: "Confirm",
+      Coach: "D1",
+      Berth: 49,
+      BookingStatus: "CNF D1 49",
+      CurrentStatus: "CNF",
+      CoachPosition: null,
+      BookingBerthNo: 49,
+      BookingCoachId: "D1",
+      BookingStatusNew: "CNF",
+      BookingStatusIndex: 0,
+      CurrentBerthNo: null,
+      CurrentCoachId: null,
+      BookingBerthCode: "WS",
+      CurrentBerthCode: null,
+      CurrentStatusNew: "CNF",
+      CurrentStatusIndex: 0,
+    },
+  ],
+  cacheTime: "2022-07-30T02:54:15.2754234+05:30",
+  error: "null",
+  departureTime: "18:10",
+  arrivalTime: "18:43",
   expectedPlatformNo: "5",
-  bookingFare: null,
-  ticketFare: null,
-  coachPosition: "D1",
+  bookingFare: "45",
+  ticketFare: "45",
+  coachPosition: "null",
   rating: "3.7",
-  foodRating: null,
-  punctualityRating: null,
-  cleanlinessRating: null,
-  sourceName: null,
-  destinationName: null,
-  duration: null,
-  ratingCount: null,
-  hasPantry: null,
+  foodRating: "3.1",
+  punctualityRating: "4.2",
+  cleanlinessRating: "3.8",
+  sourceName: "null",
+  destinationName: "null",
+  duration: "0:33",
+  ratingCount: "69",
+  hasPantry: "false",
 };
 
-const Results = ({ data = tempData }) => {
-  return data.length === 0 ? (
+const Results = ({ data = tempData}) => {
+  return data === undefined || data === null ? (
     <WhiteBlock>
       <p className="m-0">The are no data</p>
     </WhiteBlock>
@@ -68,15 +91,15 @@ const Results = ({ data = tempData }) => {
         <div className="row">
           <div className="col-12 col-lg-6">
             <div className="d-flex mb-4">
-              <h2 className="m-0">PNR : {data.pnr}</h2>
+              <h2 className="m-0">PNR : {data.pnr || "No PNR"}</h2>
               <button className="btn btn-outline-success ms-3">CHANGE</button>
             </div>
             <div className="d-flex mb-2">
               <h4 className="m-0">
-                {data.trainNo} - {data.trainName}
+                {data.trainNo || "No train Number"} - {data.trainName || "No train name"}
               </h4>
               <button className="btn btn-success btn-sm ms-3">
-                <FontAwesomeIcon icon={faStar} /> {data.rating}
+                <FontAwesomeIcon icon={faStar} /> {data.rating || "No rating"}
               </button>
             </div>
           </div>
@@ -84,25 +107,25 @@ const Results = ({ data = tempData }) => {
             <ul className="list-style-none p-0">
               <li className="m-2">
                 <FontAwesomeIcon icon={faRightFromBracket} className="mx-2" />
-                {data.sourceDoj}
+                {data.boardingStationName || "No boarding station name"} - {data.boardingPoint || "No boarding point"}
                 {", "}
-                {data.arrivalTime}
+                {data.departureTime || "No departure time"}
               </li>
               <li className="m-2">
                 <FontAwesomeIcon icon={faRightToBracket} className="mx-2" />
-                {data.destinationDoj}
+                {data.reservationUptoName || "No reservation name"} - {data.reservationUpto || "No reservation point"}
                 {", "}
-                {data.departureTime}
+                {data.arrivalTime || "No arrival time"}
               </li>
               <hr />
               <li className="m-2">
                 <FontAwesomeIcon icon={faCalendarDays} className="mx-2" />
-                {data.doj}
+                {data.doj || "No DOJ"}
               </li>
               <li className="m-2">
                 <FontAwesomeIcon icon={faInfoCircle} className="mx-2" />
-                {data.getclass} | GN | Expected platform :
-                {data.expectedPlatformNo}
+                {data.getclass || "No class"} | {data.quota || "No quota"} | Expected platform :{" "}
+                {data.expectedPlatformNo || "No platform number"}
               </li>
             </ul>
           </div>
@@ -112,7 +135,11 @@ const Results = ({ data = tempData }) => {
         <div className="d-flex justify-content-between">
           <h2 className="m-0">Passenger Status</h2>
           <div>
-            <h4>{data.chartPrepared}</h4>
+            <h4>
+              {data.chartPrepared === "false"
+                ? "Chart not prepared"
+                : "Chart prepared"}
+            </h4>
             <div className="d-flex align-items-center">
               <p className="m-0">Just now</p>
               <FontAwesomeIcon
@@ -124,24 +151,33 @@ const Results = ({ data = tempData }) => {
           </div>
         </div>
         <hr />
-        <div className="row">
-          <div className="col-6 col-sm-6 col-lg-2 mb-4 mb-lg-0">
-            <h6 className="text-muted">S. No</h6>
-            <h4 className="m-0">1</h4>
-          </div>
-          <div className="col-6 col-sm-6 col-lg-3">
-            <h6 className="text-muted">Current Status </h6>
-            <h4 className="m-0 text-success">{data.passengerStatus}</h4>
-          </div>
-          <div className="col-6 col-sm-6 col-lg-4">
-            <h6 className="text-muted">Booking Status </h6>
-            <h4 className="m-0">CNF {data.coachPosition} 49 </h4>
-          </div>
-          <div className="col-6 col-sm-6 col-lg-3">
-            <h6 className="text-muted">Coach Position</h6>
-            <h4 className="m-0">{data.coachPosition}</h4>
-          </div>
-        </div>
+        {data.passengerStatus?.map((passenger, i) => {
+          return (
+            <Fragment key={i}>
+              {i > 0 && <hr />}
+              <div className="row">
+                <div className="col-6 col-sm-6 col-lg-2 mb-4 mb-lg-0">
+                  <h6 className="text-muted">S. No</h6>
+                  <h4 className="m-0">{passenger.Number || "-"}</h4>
+                </div>
+                <div className="col-6 col-sm-6 col-lg-3">
+                  <h6 className="text-muted">Current Status </h6>
+                  <h4 className="m-0 text-success">
+                    {passenger.CurrentStatus || "-"}
+                  </h4>
+                </div>
+                <div className="col-6 col-sm-6 col-lg-4">
+                  <h6 className="text-muted">Booking Status </h6>
+                  <h4 className="m-0"> {passenger.BookingStatus || "-"} </h4>
+                </div>
+                <div className="col-6 col-sm-6 col-lg-3">
+                  <h6 className="text-muted">Coach Position</h6>
+                  <h4 className="m-0">{passenger.coachPosition || "-"}</h4>
+                </div>
+              </div>
+            </Fragment>
+          );
+        })}
       </WhiteBlock>
       <WhiteBlock>
         <div className="row">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Search from "../../components/Search/Search";
 import WhiteBlock from "../../components/UI/Blocks/WhiteBlock";
+import LoadingSpinner from "../../components/UI/Spinners/LoadingSpinner";
 import { encryptWithAES } from "../../Helpers/functions";
 import Results from "./Results";
 
@@ -16,7 +17,7 @@ const Content = () => {
     try {
       const encryptedNumber = encryptWithAES(number);
       const response = await fetch(
-        "http://185.69.55.209:8080/pnrstatus/master",
+        "pnrstatus/master",
         {
           method: "POST",
           headers: {
@@ -30,17 +31,17 @@ const Content = () => {
     } catch (err) {
       console.log(err);
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
   };
 
   return (
     <>
       <Search onSubmit={onSubmit} />
-      {showResults && loading && <WhiteBlock>loading....</WhiteBlock>}
+      {showResults && loading && <WhiteBlock><LoadingSpinner /></WhiteBlock>}
       {showResults && !loading && (
         <Results
-        //   data={results}
+          // data={results}
         />
       )}
     </>
