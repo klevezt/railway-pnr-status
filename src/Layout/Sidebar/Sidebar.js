@@ -22,12 +22,12 @@ import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
     <ul className={styles["sidebar"]}>
-      <li>
+      {/* <li>
         <Link to="/" className={styles["sidebar-li"]}>
           <FontAwesomeIcon icon={faTrain} className="me-2" />
           Home
         </Link>
-      </li>
+      </li> */}
       <li>
         <Link to="/" className={styles["sidebar-li"]}>
           <FontAwesomeIcon icon={faTicket} className="me-2" />

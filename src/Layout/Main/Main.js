@@ -1,8 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Content from "./Content";
-import NotFound from "../Pages/404/NotFound";
+import NotFound from "../Pages/NotFound";
 import Sidebar from "../Sidebar/Sidebar";
+import PrivacyPolicy from "../Pages/PrivacyPolicy";
+import FAQ from "../Pages/FAQ";
+import ContactUs from "../Pages/ContactUs";
 
 const Main = () => {
   return (
@@ -14,6 +17,9 @@ const Main = () => {
         <Routes>
           <Route path="/" element={<Content />} />
           <Route path="/404" element={<NotFound />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/contact-us" element={<ContactUs />} />
         </Routes>
       </div>
     </main>

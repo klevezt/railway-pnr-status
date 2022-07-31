@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Fragment } from "react";
 import WhiteBlock from "../../components/UI/Blocks/WhiteBlock";
+import { Link } from "react-router-dom"
 import {
   faStar,
   faRightFromBracket,
@@ -81,24 +82,30 @@ const tempData = {
 };
 
 const Results = ({ data = tempData}) => {
+
+  const refreshPage = ()=>{
+     window.location.reload();
+  }
+
   return data === undefined || data === null ? (
     <WhiteBlock>
       <p className="m-0">The are no data</p>
     </WhiteBlock>
   ) : (
     <div className="row m-0">
+      
       <WhiteBlock>
         <div className="row">
           <div className="col-12 col-lg-6">
             <div className="d-flex mb-4">
               <h2 className="m-0">PNR : {data.pnr || "No PNR"}</h2>
-              <button className="btn btn-outline-success ms-3">CHANGE</button>
             </div>
             <div className="d-flex mb-2">
               <h4 className="m-0">
-                {data.trainNo || "No train Number"} - {data.trainName || "No train name"}
+                {data.trainNo || "No train Number"} -{" "}
+                {data.trainName || "No train name"}
               </h4>
-              <button className="btn btn-success btn-sm ms-3">
+              <button className="btn btn-info btn-sm ms-3">
                 <FontAwesomeIcon icon={faStar} /> {data.rating || "No rating"}
               </button>
             </div>
@@ -107,13 +114,15 @@ const Results = ({ data = tempData}) => {
             <ul className="list-style-none p-0">
               <li className="m-2">
                 <FontAwesomeIcon icon={faRightFromBracket} className="mx-2" />
-                {data.boardingStationName || "No boarding station name"} - {data.boardingPoint || "No boarding point"}
+                {data.boardingStationName || "No boarding station name"} -{" "}
+                {data.boardingPoint || "No boarding point"}
                 {", "}
                 {data.departureTime || "No departure time"}
               </li>
               <li className="m-2">
                 <FontAwesomeIcon icon={faRightToBracket} className="mx-2" />
-                {data.reservationUptoName || "No reservation name"} - {data.reservationUpto || "No reservation point"}
+                {data.reservationUptoName || "No reservation name"} -{" "}
+                {data.reservationUpto || "No reservation point"}
                 {", "}
                 {data.arrivalTime || "No arrival time"}
               </li>
@@ -124,7 +133,8 @@ const Results = ({ data = tempData}) => {
               </li>
               <li className="m-2">
                 <FontAwesomeIcon icon={faInfoCircle} className="mx-2" />
-                {data.getclass || "No class"} | {data.quota || "No quota"} | Expected platform :{" "}
+                {data.getclass || "No class"} | {data.quota || "No quota"} |
+                Expected platform :{" "}
                 {data.expectedPlatformNo || "No platform number"}
               </li>
             </ul>
@@ -140,14 +150,14 @@ const Results = ({ data = tempData}) => {
                 ? "Chart not prepared"
                 : "Chart prepared"}
             </h4>
-            <div className="d-flex align-items-center">
-              <p className="m-0">Just now</p>
+            <button className="btn" onClick={refreshPage}>
+              Reload now
               <FontAwesomeIcon
                 icon={faArrowRotateLeft}
                 style={{ color: "green" }}
                 className="mx-2"
               />
-            </div>
+            </button>
           </div>
         </div>
         <hr />
@@ -179,7 +189,7 @@ const Results = ({ data = tempData}) => {
           );
         })}
       </WhiteBlock>
-      <WhiteBlock>
+      {/* <WhiteBlock>
         <div className="row">
           <div className="col-12 col-lg-7 mb-3 m-lg-0">
             <div className="row">
@@ -210,29 +220,29 @@ const Results = ({ data = tempData}) => {
             />
           </button>
         </div>
-      </WhiteBlock>
+      </WhiteBlock> */}
 
       <WhiteBlock>
         <div className="row">
-          <button className="col-6 col-lg-3 d-flex align-items-center btn btn-lg">
+          <Link to="/404" className="col-6 col-lg-3 d-flex align-items-center btn btn-lg">
             <FontAwesomeIcon size="lg" icon={faTrainSubway} className="me-2" />
             <h5 className="m-0">Running Status</h5>
-          </button>
-          <button className="col-6 col-lg-3 d-flex align-items-center btn btn-lg">
+          </Link>
+          <Link to="/404" className="col-6 col-lg-3 d-flex align-items-center btn btn-lg">
             <FontAwesomeIcon size="lg" icon={faRoute} className="me-2" />
             <h5 className="m-0">Train Schedule</h5>
-          </button>
-          <button className="col-6 col-lg-3 d-flex align-items-center btn btn-lg">
+          </Link>
+          <Link to="/404" className="col-6 col-lg-3 d-flex align-items-center btn btn-lg">
             <FindInPageIcon className="me-2" />
             <h5 className="m-0">Coach Position</h5>
-          </button>
-          <button className="col-6 col-lg-3 d-flex align-items-center btn btn-lg">
+          </Link>
+          <Link to="/404" className="col-6 col-lg-3 d-flex align-items-center btn btn-lg">
             <AirlineSeatReclineExtra className="me-2" />
             <h5 className="m-0">Seat Layout</h5>
-          </button>
+          </Link>
         </div>
       </WhiteBlock>
-      <WhiteBlock>
+      {/* <WhiteBlock>
         <div className="d-flex align-items-center mb-4">
           <div
             style={{
@@ -272,7 +282,7 @@ const Results = ({ data = tempData}) => {
         <p className="mt-3 mb-0">
           * RAC will be considered as confirm while predicting.
         </p>
-      </WhiteBlock>
+      </WhiteBlock> */}
     </div>
   );
 };

@@ -18,25 +18,29 @@ const Search = (props) => {
         }}
         className="needs-validation"
       >
-        <div className="mb-3">
-          <div className="has-validation">
-            <label htmlFor="prn_number" className="form-label">
-              PNR Number 10 Digits
-            </label>
-            <input
-              type="number"
-              className={`form-control ${!validNumber ? "is-invalid" : ""} `}
-              id="prn_number"
-              placeholder="Enter the PNR number"
-              ref={numberRef}
-            />
-            <div className="invalid-feedback">Please enter a valid PRN number.</div>
+        <div className="row align-items-end">
+          <div className="col-12 col-sm-7">
+            <div className="has-validation">
+              <label htmlFor="prn_number" className="form-label">
+                PNR Number 10 Digits
+              </label>
+              <input
+                type="number"
+                className={`form-control ${!validNumber ? "is-invalid" : ""} `}
+                id="prn_number"
+                placeholder="Enter the PNR number"
+                ref={numberRef}
+              />
+              <div className="invalid-feedback">
+                Please enter a valid PRN number.
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="mb-3">
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
+          <div className="col-12 col-sm-3 mt-2 mt-sm-0">
+            <button type="submit" className="btn btn-info">
+              Submit
+            </button>
+          </div>
         </div>
       </form>
     </WhiteBlock>

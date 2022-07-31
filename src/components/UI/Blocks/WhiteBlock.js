@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./WhiteBlock.module.css";
 
-const WhiteBlock = ({ children }) => {
-  return <div className={styles["search-wrapper"]}>{children}</div>;
+const WhiteBlock = ({ children, className }) => {
+  return <div className={`${styles["search-wrapper"]} ${className}`}>{children}</div>;
 };
 
 export default WhiteBlock;

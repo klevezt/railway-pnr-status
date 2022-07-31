@@ -3,6 +3,7 @@ import Search from "../../components/Search/Search";
 import WhiteBlock from "../../components/UI/Blocks/WhiteBlock";
 import LoadingSpinner from "../../components/UI/Spinners/LoadingSpinner";
 import { encryptWithAES } from "../../Helpers/functions";
+import MainFAQ from "./MainFAQ";
 import Results from "./Results";
 
 const Content = () => {
@@ -37,13 +38,21 @@ const Content = () => {
 
   return (
     <>
+      <WhiteBlock className="text-center">
+        <h4 className="m-0">Indian Railways: PNR Status</h4>
+      </WhiteBlock>
       <Search onSubmit={onSubmit} />
-      {showResults && loading && <WhiteBlock><LoadingSpinner /></WhiteBlock>}
+      {showResults && loading && (
+        <WhiteBlock>
+          <LoadingSpinner />
+        </WhiteBlock>
+      )}
       {showResults && !loading && (
         <Results
-          // data={results}
+        // data={results}
         />
       )}
+      <MainFAQ />
     </>
   );
 };

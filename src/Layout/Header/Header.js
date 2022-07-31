@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
-import logo from "../../horizontal.png";
-import trainLogo from "../../app_icon.png";
+import logo from "../../train.png";
+import trainLogo from "../../train.png";
 import { ExpandMore } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const Header = () => {
       <nav className="navbar navbar-expand-md">
         <div className="container-fluid">
           <Link to="/">
-            <img src={logo} className="navbar-brand" alt="brand" />
+            <img src={logo} className="navbar-brand" alt="brand"/>
           </Link>
           <button
             onClick={toggleMenu}
@@ -32,7 +32,7 @@ const Header = () => {
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item mx-2">
+              {/* <li className="nav-item mx-2">
                 <Link
                   to="/"
                   className="nav-link header-link btn"
@@ -40,13 +40,13 @@ const Header = () => {
                 >
                   Train Search
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item mx-2">
                 <Link to="/" className="nav-link header-link btn">
                   PNR Status
                 </Link>
               </li>
-              <li className="nav-item mx-2 dropdown">
+              {/* <li className="nav-item mx-2 dropdown">
                 <Link
                   to="/"
                   className="nav-link header-link btn"
@@ -57,10 +57,11 @@ const Header = () => {
                   More
                   <ExpandMore />
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item mx-2 ">
-                <Link
-                  to="/"
+                <a
+                  href="#"
+                  target="_blank"
                   className="nav-link header-link btn d-flex align-items-center"
                 >
                   <img
@@ -70,7 +71,7 @@ const Header = () => {
                     className="me-2"
                   />
                   Download App
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

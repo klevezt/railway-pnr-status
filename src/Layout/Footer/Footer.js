@@ -44,30 +44,21 @@ const Footer = () => {
             <hr />
             <div className="row m-0">
               <ul className="list-group list-group-flush col-6">
-                <Link to="/" target="_blank" className={styles["footer-link"]}>
-                  ConfirmTkt Buzz
+                <Link to="/privacy-policy" className={styles["footer-link"]}>
+                  Privacy Policy
                 </Link>
-                <Link to="/" target="_blank" className={styles["footer-link"]}>
+                <Link to="/faq" className={styles["footer-link"]}>
                   FAQ
                 </Link>
-                <Link to="/" target="_blank" className={styles["footer-link"]}>
+                <Link to="/contact-us" className={styles["footer-link"]}>
                   Contact
-                </Link>
-                <Link to="/" target="_blank" className={styles["footer-link"]}>
-                  Media Kit
-                </Link>
-                <Link to="/" target="_blank" className={styles["footer-link"]}>
-                  Aliances
                 </Link>
               </ul>
               <ul className="list-group list-group-flush col-6">
-                <Link to="/" target="_blank" className={styles["footer-link"]}>
-                  Become an Affiliate
+                <Link to="/privacy-policy" className={styles["footer-link"]}>
+                  Terms And Conditions
                 </Link>
-                <Link to="/" target="_blank" className={styles["footer-link"]}>
-                  Terms And Condition
-                </Link>
-                <Link to="/" target="_blank" className={styles["footer-link"]}>
+                <Link to="/privacy-policy" className={styles["footer-link"]}>
                   Terms And Cancellations
                 </Link>
                 <Link to="/" target="_blank" className={styles["footer-link"]}>
@@ -92,21 +83,26 @@ const Footer = () => {
         <div className="row">
           <div className="col-12">
             <ul className="d-inline list-group list-group-flush ">
-              <Link to="/" target="_blank" className={styles["footer-link"]}>
-                ixigo
-              </Link>
-              <Link to="/" target="_blank" className={styles["footer-link"]}>
+              <a
+                href="https://www.GetWebsites.net"
+                target="_blank"
+                className={styles["footer-link"]}
+                rel="noreferrer"
+              >
+                GetWebsites.net
+              </a>
+              {/* <Link to="/" target="_blank" className={styles["footer-link"]}>
                 abhibus
-              </Link>
+              </Link> */}
             </ul>
           </div>
         </div>
         <hr />
         <p className="m-0">
-          ConfirmTkt.com is official partner of IRCTC to book IRCTC train
-          tickets and Railway train enquiry
+          IndianRailwaysInfo,com is for Travel Information Purpose only and will
+          not be liable for any loss/damages due to the information it provides.
         </p>
-        <p className="m-0">© 2022 Confirmtkt</p>
+        <p className="m-0">Copyright © 2022, All Rights Reserved.</p>
       </div>
     </footer>
   );
