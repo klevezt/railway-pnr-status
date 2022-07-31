@@ -93,7 +93,6 @@ const Results = ({ data = tempData}) => {
     </WhiteBlock>
   ) : (
     <div className="row m-0">
-      
       <WhiteBlock>
         <div className="row">
           <div className="col-12 col-lg-6">
@@ -105,7 +104,7 @@ const Results = ({ data = tempData}) => {
                 {data.trainNo || "No train Number"} -{" "}
                 {data.trainName || "No train name"}
               </h4>
-              <button className="btn btn-info btn-sm ms-3">
+              <button className="btn btn-main btn-sm ms-3">
                 <FontAwesomeIcon icon={faStar} /> {data.rating || "No rating"}
               </button>
             </div>
@@ -154,7 +153,7 @@ const Results = ({ data = tempData}) => {
               Reload now
               <FontAwesomeIcon
                 icon={faArrowRotateLeft}
-                style={{ color: "green" }}
+                style={{ color: "#00bef2" }}
                 className="mx-2"
               />
             </button>
@@ -172,7 +171,7 @@ const Results = ({ data = tempData}) => {
                 </div>
                 <div className="col-6 col-sm-6 col-lg-3">
                   <h6 className="text-muted">Current Status </h6>
-                  <h4 className="m-0 text-success">
+                  <h4 className="m-0 text-main">
                     {passenger.CurrentStatus || "-"}
                   </h4>
                 </div>
@@ -224,19 +223,31 @@ const Results = ({ data = tempData}) => {
 
       <WhiteBlock>
         <div className="row">
-          <Link to="/404" className="col-6 col-lg-3 d-flex align-items-center btn btn-lg">
+          <Link
+            to="/404"
+            className="col-6 col-lg-3 d-flex align-items-center btn btn-lg"
+          >
             <FontAwesomeIcon size="lg" icon={faTrainSubway} className="me-2" />
             <h5 className="m-0">Running Status</h5>
           </Link>
-          <Link to="/404" className="col-6 col-lg-3 d-flex align-items-center btn btn-lg">
+          <Link
+            to="/404"
+            className="col-6 col-lg-3 d-flex align-items-center btn btn-lg"
+          >
             <FontAwesomeIcon size="lg" icon={faRoute} className="me-2" />
             <h5 className="m-0">Train Schedule</h5>
           </Link>
-          <Link to="/404" className="col-6 col-lg-3 d-flex align-items-center btn btn-lg">
+          <Link
+            to="/404"
+            className="col-6 col-lg-3 d-flex align-items-center btn btn-lg"
+          >
             <FindInPageIcon className="me-2" />
             <h5 className="m-0">Coach Position</h5>
           </Link>
-          <Link to="/404" className="col-6 col-lg-3 d-flex align-items-center btn btn-lg">
+          <Link
+            to="/404"
+            className="col-6 col-lg-3 d-flex align-items-center btn btn-lg"
+          >
             <AirlineSeatReclineExtra className="me-2" />
             <h5 className="m-0">Seat Layout</h5>
           </Link>

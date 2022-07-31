@@ -25,3 +25,9 @@ code {
   object-fit: cover;
   padding: 0;
 }
+.text-main{
+  color: #00bef2!important;
+}
+.btn-main{
+  background: #00bef2!important;
+}

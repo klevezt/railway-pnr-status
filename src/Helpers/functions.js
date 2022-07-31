@@ -1,12 +1,19 @@
-export const encryptWithAES = (message) => {
+
+export const tmpEncrypt = (number) =>{
     var CryptoJS = require("crypto-js");
 
-    var key = process.env.REACT_APP_SECRET_KEY; 
+    var key = process.env.REACT_APP_SECRET_KEY;
     var iv = process.env.REACT_APP_INITIAL_VECTOR; 
 
-    key = CryptoJS.enc.Base64.parse(key);
-    iv = CryptoJS.enc.Base64.parse(iv);
+    key = CryptoJS.enc.Latin1.parse(key);
+    iv = CryptoJS.enc.Latin1.parse(iv);
 
-    var cipherData = CryptoJS.AES.encrypt(message, key, { iv: iv }).toString();
-    return cipherData;
+    var encrypted = CryptoJS.AES.encrypt(number, key, {
+      iv: iv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.ZeroPadding,
+    });
+    console.log("encrypted: " + encrypted);
+    return encrypted.toString();
+
 }

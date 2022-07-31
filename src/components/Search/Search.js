@@ -37,7 +37,7 @@ const Search = (props) => {
             </div>
           </div>
           <div className="col-12 col-sm-3 mt-2 mt-sm-0">
-            <button type="submit" className="btn btn-info">
+            <button type="submit" className="btn btn-main">
               Submit
             </button>
           </div>
