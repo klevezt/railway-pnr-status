@@ -98,8 +98,7 @@ const Results = ({ data, passengerStatus }) => {
         </div>
         <hr />
         {passengerStatus &&
-          Array.isArray(passengerStatus) &&
-          passengerStatus?.map((passenger, i) => {
+          passengerStatus.map((passenger, i) => {
             return (
               <Fragment key={i}>
                 {i > 0 && <hr />}
