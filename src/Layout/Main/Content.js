@@ -18,7 +18,7 @@ const Content = () => {
     setShowResults(true);
     try {
       const encryptedNumber = tmpEncrypt(number);
-      const response = await fetch("pnrstatus/master", {
+      const response = await fetch("http://localhost:8080/pnrstatus/master", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
