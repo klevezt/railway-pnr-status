@@ -13,7 +13,6 @@ export const tmpEncrypt = (number) =>{
       mode: CryptoJS.mode.CBC,
       padding: CryptoJS.pad.ZeroPadding,
     });
-    console.log("encrypted: " + encrypted);
     return encrypted.toString();
 
 }

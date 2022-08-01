@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Fragment } from "react";
 import WhiteBlock from "../../components/UI/Blocks/WhiteBlock";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import {
   faStar,
   faRightFromBracket,
@@ -19,73 +19,10 @@ import {
 import { AirlineSeatReclineExtra } from "@mui/icons-material";
 import FindInPageIcon from "@mui/icons-material/FindInPage";
 
-const tempData = {
-  pnr: "4753150809",
-  trainNo: "16115",
-  trainName: "MS PDY EXPRESS",
-  doj: "31-10-2022",
-  bookingDate: "04-07-2022",
-  quota: "GN",
-  destinationDoj: "31-10-2022",
-  sourceDoj: "31-10-2022",
-  from: "MS",
-  reservationUpto: "TBM",
-  boardingPoint: "MS",
-  getclass: "2S",
-  chartPrepared: "false",
-  boardingStationName: "Chennai Egmore",
-  trainStatus: "",
-  trainCancelledFlag: "false",
-  reservationUptoName: "Tambaram",
-  passengerCount: "1",
-  passengerStatus: [
-    {
-      Pnr: null,
-      Number: 1,
-      Prediction: null,
-      PredictionPercentage: 100,
-      ConfirmTktStatus: "Confirm",
-      Coach: "D1",
-      Berth: 49,
-      BookingStatus: "CNF D1 49",
-      CurrentStatus: "CNF",
-      CoachPosition: null,
-      BookingBerthNo: 49,
-      BookingCoachId: "D1",
-      BookingStatusNew: "CNF",
-      BookingStatusIndex: 0,
-      CurrentBerthNo: null,
-      CurrentCoachId: null,
-      BookingBerthCode: "WS",
-      CurrentBerthCode: null,
-      CurrentStatusNew: "CNF",
-      CurrentStatusIndex: 0,
-    },
-  ],
-  cacheTime: "2022-07-30T02:54:15.2754234+05:30",
-  error: "null",
-  departureTime: "18:10",
-  arrivalTime: "18:43",
-  expectedPlatformNo: "5",
-  bookingFare: "45",
-  ticketFare: "45",
-  coachPosition: "null",
-  rating: "3.7",
-  foodRating: "3.1",
-  punctualityRating: "4.2",
-  cleanlinessRating: "3.8",
-  sourceName: "null",
-  destinationName: "null",
-  duration: "0:33",
-  ratingCount: "69",
-  hasPantry: "false",
-};
-
-const Results = ({ data = tempData}) => {
-
-  const refreshPage = ()=>{
-     window.location.reload();
-  }
+const Results = ({ data, passengerStatus }) => {
+  const refreshPage = () => {
+    window.location.reload();
+  };
 
   return data === undefined || data === null ? (
     <WhiteBlock>
@@ -160,33 +97,36 @@ const Results = ({ data = tempData}) => {
           </div>
         </div>
         <hr />
-        {data.passengerStatus?.map((passenger, i) => {
-          return (
-            <Fragment key={i}>
-              {i > 0 && <hr />}
-              <div className="row">
-                <div className="col-6 col-sm-6 col-lg-2 mb-4 mb-lg-0">
-                  <h6 className="text-muted">S. No</h6>
-                  <h4 className="m-0">{passenger.Number || "-"}</h4>
+        {passengerStatus &&
+          Array.isArray(passengerStatus) &&
+          passengerStatus?.map((passenger, i) => {
+            return (
+              <Fragment key={i}>
+                {i > 0 && <hr />}
+                <div className="row">
+                  <div className="col-6 col-sm-6 col-lg-2 mb-4 mb-lg-0">
+                    <h6 className="text-muted">S. No</h6>
+                    <h4 className="m-0">{passenger.Number || "-"}</h4>
+                  </div>
+                  <div className="col-6 col-sm-6 col-lg-3">
+                    <h6 className="text-muted">Current Status </h6>
+                    <h4 className="m-0 text-main">
+                      {passenger.CurrentStatus || "-"}
+                    </h4>
+                  </div>
+                  <div className="col-6 col-sm-6 col-lg-4">
+                    <h6 className="text-muted">Booking Status </h6>
+                    <h4 className="m-0"> {passenger.BookingStatus || "-"} </h4>
+                  </div>
+                  <div className="col-6 col-sm-6 col-lg-3">
+                    <h6 className="text-muted">Coach Position</h6>
+                    <h4 className="m-0">{passenger.coachPosition || "-"}</h4>
+                  </div>
                 </div>
-                <div className="col-6 col-sm-6 col-lg-3">
-                  <h6 className="text-muted">Current Status </h6>
-                  <h4 className="m-0 text-main">
-                    {passenger.CurrentStatus || "-"}
-                  </h4>
-                </div>
-                <div className="col-6 col-sm-6 col-lg-4">
-                  <h6 className="text-muted">Booking Status </h6>
-                  <h4 className="m-0"> {passenger.BookingStatus || "-"} </h4>
-                </div>
-                <div className="col-6 col-sm-6 col-lg-3">
-                  <h6 className="text-muted">Coach Position</h6>
-                  <h4 className="m-0">{passenger.coachPosition || "-"}</h4>
-                </div>
-              </div>
-            </Fragment>
-          );
-        })}
+              </Fragment>
+            );
+          })}
+          {!passengerStatus && <p className="m-0">No passenger information</p>}
       </WhiteBlock>
       {/* <WhiteBlock>
         <div className="row">

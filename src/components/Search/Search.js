@@ -31,11 +31,9 @@ const Search = (props) => {
                 placeholder="Enter the PNR number"
                 ref={numberRef}
               />
-              <div className="invalid-feedback">
-                Please enter a valid PRN number.
-              </div>
             </div>
           </div>
+
           <div className="col-12 col-sm-3 mt-2 mt-sm-0">
             <button type="submit" className="btn btn-main">
               Submit
@@ -43,6 +41,9 @@ const Search = (props) => {
           </div>
         </div>
       </form>
+      {!validNumber && (
+        <div className="text-danger">Please enter a valid PRN number.</div>
+      )}
     </WhiteBlock>
   );
 };
